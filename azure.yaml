@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+name: agent-3d
+services:
+  ai-project:
+    host: azure.ai.project
+  agent-3d:
+    project: .
+    host: azure.ai.agent
+    language: docker
+    docker:
+      remoteBuild: false
+    uses:
+      - ai-project
+    kind: hosted
+    name: agent-3d
+    description: Synthetic scene inspection and approval-gated edits using native AG-UI.
+    protocols:
+      - protocol: invocations
+        version: 2.0.0
+    env:
+      HOST_MODE: foundry
+      MODEL_PROVIDER: foundry
+      MODEL_ENDPOINT: ${MODEL_ENDPOINT}
+      MODEL_NAME: ${MODEL_NAME}
+      MODEL_CONTEXT_TOKENS: ${MODEL_CONTEXT_TOKENS}
+      MODEL_OUTPUT_TOKENS: ${MODEL_OUTPUT_TOKENS}
+    container:
+      resources:
+        cpu: "0.5"
+        memory: 1Gi
