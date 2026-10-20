@@ -1,0 +1,12 @@
+.git/
+.packages/
+.verification/
+**/bin/
+**/obj/
+**/TestResults/
+tests/
+data/
+**/data/
+**/OTEL_DIAGNOSTICS.json
+.env
+**/.env
